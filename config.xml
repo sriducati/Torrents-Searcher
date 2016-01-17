@@ -1,4 +1,4 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://srihost.com/ns/1.0" id="com.srihost.torrents" version="1.0.0">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.srihost.torrents" version="1.0.0">
   <name>SriHost: Torrents Searcher</name>
   <description>SriHost: Torrents Search Engine To Search and Download favorite TV shows & TV series,Softwares, movies, music and games.</description>
     <access origin="*"/>

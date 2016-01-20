@@ -29,7 +29,7 @@ $Torrent_link = $_GET['link'];
               <div class="modal-dialog" style="width: 175px;">
                 <div class="modal-content">
                   <!--<div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                     <h4 class="modal-title">Modal title</h4>
                   </div>-->
                   <div class="modal-body" style="padding:0;">
@@ -93,7 +93,7 @@ $(function(){
 
 
 var search_term = "<?php echo $Torrent_link; ?>";
-console.log(search_term);
+//console.log(search_term);
 var all_torrents = "";
 var Torrentz = [];
   $.ajax({
@@ -113,15 +113,23 @@ var Torrentz = [];
 
       });
 	  
-      console.log(Torrentz);
+      if (Torrentz== undefined || Torrentz== null || Torrentz.length == 0 || (Torrentz.length == 1 && Torrentz[0] == ""))
+        {
+            location.reload();
+        }
+      else{
+
           $(Torrentz).each(function(i,j){
-			if(Torrentz[i].url_title!=undefined){
+			if(Torrentz[i].url_title!=undefined && Torrentz[i].url.indexOf('ads.ad') === -1){
+
 				all_torrents += '<li class="list-group-item clearfix"><div class="row"><div class="col-sm-4"><a href="'+Torrentz[i].url+'">'+Torrentz[i].url_title+'</a> </div><div class="col-sm-8">'+Torrentz[i].title+'</div></div></li>'
 
 			}
           
        });
       $("#all_torrents").html(all_torrents);
+
+      }
              
     },
     failure: function(msg) {

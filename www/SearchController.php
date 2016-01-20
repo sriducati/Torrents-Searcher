@@ -1,5 +1,7 @@
 <?php
 
+$searched_term = preg_replace('/\s+/', '+', $_POST["name"]);
+
 function get_dataa($url) {
   $ch = curl_init();
   $timeout = 5;
@@ -15,7 +17,7 @@ function get_dataa($url) {
   curl_close($ch);
   return $data;
 }
-$variableee = get_dataa('https://torrentz.eu/suggestions.php?q='.$_POST["name"]);
+$variableee = get_dataa('https://torrentz.eu/suggestions.php?q='.$searched_term);
 
 
 echo json_encode($variableee);
